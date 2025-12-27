@@ -9,44 +9,27 @@ export default function Home() {
     setIsFlipped(!isFlipped);
   };
 
-  // === vCard 生成逻辑 ===
-  const saveContact = (e: React.MouseEvent) => {
+  // === 跳转官网逻辑 ===
+  const visitWebsite = (e: React.MouseEvent) => {
     e.stopPropagation();
-    const vCardData = `BEGIN:VCARD
-VERSION:3.0
-FN:Rocket 郑
-ORG:独立技术专家 (Solopreneur)
-TITLE:工业数字化顾问
-TEL;TYPE=CELL:18668787770
-EMAIL:271429107@qq.com
-URL:https://rocketcard-omega.vercel.app
-ADR;TYPE=WORK:;;柳翁西路20号中环大厦701;;;;
-END:VCARD`;
-    const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
-    const url = window.URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = url;
-    link.setAttribute('download', 'Rocket郑.vcf');
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    window.open('http://zs.dzml.com.cn', '_blank');
   };
 
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-[#0f172a] p-4 overflow-hidden relative">
 
       {/* 标题提示 */}
-      <div className="mb-8 md:mb-12 text-center pointer-events-none select-none">
+      <div className="mb-8 md:mb-12 landscape:mb-2 md:landscape:mb-4 text-center pointer-events-none select-none">
         <h1 className="text-cyan-400 text-sm md:text-xl tracking-[0.3em] font-bold animate-pulse">
           DIGITAL IDENTITY SYSTEM
         </h1>
         <p className="text-slate-500 text-[10px] md:text-sm mt-2 tracking-widest uppercase">
-          Click to Reconstruct / 点击重构
+          Click or Tap to Reconstruct / 点击重构
         </p>
       </div>
 
       {/* === 3D 场景容器 (Scene Container) === */}
-      <div className="group w-full max-w-[340px] md:max-w-[900px] aspect-[1.6/1] sm:aspect-[1.6/1] cursor-pointer perspective-1000 z-10">
+      <div className="group w-full max-w-[340px] md:max-w-[600px] landscape:max-w-[480px] md:landscape:max-w-[600px] aspect-[1.6/1] sm:aspect-[1.6/1] cursor-pointer perspective-1000 z-10">
 
         {/* === 悬浮容器 (Float Container) === */}
         <div
@@ -91,13 +74,13 @@ END:VCARD`;
               />
 
               {/* 交互层 */}
-              <div className="absolute inset-x-0 bottom-8 flex justify-center pointer-events-none">
+              <div className="absolute inset-x-0 bottom-8 landscape:bottom-4 flex justify-center pointer-events-none">
                 <button
-                  onClick={saveContact}
-                  className="pointer-events-auto bg-white/10 hover:bg-white/20 hover:scale-105 backdrop-blur-md border border-white/20 text-white text-sm md:text-base font-bold py-2 px-6 rounded-full shadow-lg active:scale-95 transition-all duration-300 flex items-center gap-2 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0"
+                  onClick={visitWebsite}
+                  className="pointer-events-auto select-none transform-gpu bg-white/10 hover:bg-white/20 hover:scale-105 backdrop-blur-md border border-white/20 text-white text-sm md:text-base font-bold py-2 px-6 rounded-full shadow-lg active:scale-95 transition-all duration-300 flex items-center gap-2 opacity-0 group-hover:opacity-100 translate-y-4 group-hover:translate-y-0"
                 >
-                  <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
-                  <span>保存到通讯录</span>
+                  <svg className="w-5 h-5 text-cyan-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+                  <span>访问官网</span>
                 </button>
               </div>
 
@@ -113,7 +96,7 @@ END:VCARD`;
         </div>
       </div>
 
-      <div className="mt-8 md:mt-16 text-slate-600 text-[10px] md:text-sm font-mono tracking-widest">
+      <div className="mt-8 md:mt-16 landscape:mt-2 md:landscape:mt-4 text-slate-600 text-[10px] md:text-sm font-mono tracking-widest">
         POWERED BY ROCKET TECH
       </div>
     </main>

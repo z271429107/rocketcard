@@ -9,26 +9,25 @@ export const metadata: Metadata = {
   // 这一行告诉 Next.js 所有相对路径都要基于这个域名补全
   metadataBase: new URL(BaseUrl),
 
-  title: "Rocket郑 | 独立工业数字化专家",
+  title: "Rocket郑 | 工业数字化顾问",
   description: "点击查看我的 3D 电子名片。提供精准选型、安全传输、快速分享的数字化解决方案。",
 
   // 微信朋友圈和会话分享配置
   openGraph: {
-    title: "Rocket郑 | 独立工业数字化专家",
-    description: "点击查看 3D 电子名片，一键保存通讯录。",
+    title: "Rocket郑 | 工业数字化顾问",
+    description: "点击查看 3D 电子名片，访问官网。",
     url: '/',
     siteName: 'Rocket Digital',
-    images: [
-      {
-        // 这里必须用绝对路径，双重保险
-        url: `${BaseUrl}/share-icon.jpg`,
-        width: 500,
-        height: 500,
-        alt: 'Rocket郑电子名片缩略图',
-      },
-    ],
     locale: 'zh_CN',
     type: 'website',
+    images: [
+      {
+        url: '/card-front.jpg', // Next.js 会自动将其解析为以 metadataBase 为前缀的绝对路径
+        width: 800,
+        height: 500,
+        alt: 'Rocket郑 - 3D电子名片'
+      }
+    ],
   },
 
   // 收藏夹和桌面图标配置
