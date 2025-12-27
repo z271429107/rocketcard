@@ -3,6 +3,7 @@ import "./globals.css";
 
 // ⚠️ 核心修复：强制指定您的 Vercel 域名作为根路径
 // 这样微信才能准确找到图片
+// Trigger deployment
 const BaseUrl = 'https://rocketcard-omega.vercel.app';
 
 export const metadata: Metadata = {
