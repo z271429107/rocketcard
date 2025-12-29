@@ -51,7 +51,7 @@ export default function Home() {
             >
               {/* 图片层 */}
               <img
-                src="/card-front.jpg"
+                src="/card/card-front.jpg"
                 alt="Front"
                 className="h-full w-full object-fill"
               />
@@ -68,7 +68,7 @@ export default function Home() {
               className="absolute inset-0 rounded-2xl overflow-hidden border border-white/10 bg-[#0f172a] z-10"
             >
               <img
-                src="/card-back.jpg"
+                src="/card/card-back.jpg"
                 alt="Back"
                 className="h-full w-full object-fill"
               />
